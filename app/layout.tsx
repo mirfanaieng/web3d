@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Fraunces, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 // Self-hosted at build time. The stylesheet used to @import these from Google
@@ -18,6 +18,20 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-body",
+  display: "swap",
+});
+
+// The editorial serif the client's references all lean on. Optical sizing is
+// what makes Fraunces work at display size — the `opsz` axis thins the strokes
+// and tightens the joints as the size grows, which a static serif can't do.
+// Used only on the accent headline, so it costs one extra file, not a family.
+// Weight is left off so next/font ships the variable build — that carries the
+// optical-size axis, which is what keeps the strokes from going coarse at
+// display size. Italic is the cut actually used on the headline.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -74,7 +88,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${inter.variable} ${fraunces.variable}`}>
       <body>{children}</body>
     </html>
   );

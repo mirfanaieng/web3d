@@ -7,6 +7,7 @@ import SplitType from "split-type";
 import { useEffect, useLayoutEffect, useRef, type ReactNode } from "react";
 import { useReducedMotion } from "framer-motion";
 
+import { FinishTheme } from "./finish-theme";
 import { Cursor, ScrollProgress } from "./motion/cursor";
 import { VelocityMarquee } from "./motion/velocity-marquee";
 import { Bento } from "./sections/bento";
@@ -256,6 +257,7 @@ export function SiteExperience() {
         Skip to content
       </a>
 
+      <FinishTheme />
       <WorldSceneLoader />
       <Cursor />
       <ScrollProgress />

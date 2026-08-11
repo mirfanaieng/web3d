@@ -191,7 +191,9 @@ function FinishSwitcher() {
         })}
       </div>
 
-      <p className="finish-switcher-note">Select a finish to see it rendered live on the box.</p>
+      <p className="finish-switcher-note">
+        Select a finish — the box and the whole page change with it.
+      </p>
     </motion.div>
   );
 }
